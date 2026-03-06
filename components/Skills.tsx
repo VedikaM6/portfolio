@@ -21,8 +21,8 @@ export function Skills() {
           className="mb-12 text-3xl font-bold text-[var(--fg)] sm:text-4xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px 0px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           Skills
         </motion.h2>
@@ -36,8 +36,8 @@ export function Skills() {
                 className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-6 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/10 hover:-translate-y-0.5 dark:hover:border-violet-400/30 dark:hover:shadow-violet-500/15"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.12 }}
-                transition={{ duration: 0.35, ease: "easeOut", delay: gi * 0.05 }}
+                viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px 0px" }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: gi * 0.05 }}
               >
                 <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
                   {groupKey}

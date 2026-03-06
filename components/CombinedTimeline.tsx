@@ -72,8 +72,8 @@ function TimelineCard({
       className={`overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-violet-500/25 hover:shadow-md hover:shadow-violet-500/5 dark:border-white/10 dark:bg-white/[0.06] dark:shadow-lg dark:shadow-black/20 dark:hover:border-violet-500/25 dark:hover:shadow-violet-500/10 ${config.classes.card} ${isLeft ? "lg:mr-4" : "lg:ml-4"}`}
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.02 }}
+      viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px 0px" }}
+      transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.02 }}
       whileHover={{ scale: 1.01 }}
       style={{ originX: isLeft ? 1 : 0 }}
     >
@@ -194,8 +194,8 @@ export function CombinedTimeline() {
           className="mb-4 text-3xl font-bold text-[var(--fg)] sm:text-4xl"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.12 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px 0px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           Timeline
         </motion.h2>
@@ -253,13 +253,9 @@ export function CombinedTimeline() {
               const config = TYPE_CONFIG[item.type];
 
               return (
-                <motion.div
+                <div
                   key={item.id}
                   className="relative flex flex-col items-stretch md:flex-row md:items-center md:justify-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.02 }}
                 >
                   {/* Left side card (desktop only when isLeft) */}
                   <div className="hidden min-w-0 flex-1 justify-end md:flex md:flex-[1_1_0] md:pr-3 lg:pr-4">
@@ -293,7 +289,7 @@ export function CombinedTimeline() {
                       />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

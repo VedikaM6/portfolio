@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Vedika Maheshwari | AI Engineer & Cybersecurity Professional",
   description:
     "AI Engineer and Cybersecurity Professional building agentic AI systems, LLM pipelines, and secure software.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

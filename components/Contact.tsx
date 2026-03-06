@@ -8,7 +8,7 @@ export function Contact() {
   const { email, phone, links } = resumeData.basics;
   const linkedin = links.find((l) => l.label === "LinkedIn");
   const github = links.find((l) => l.label === "GitHub");
-  const tagline = "Let's connect — reach out via email, LinkedIn, or GitHub.";
+  const tagline = "Let's Connect — Reach Out via Email, LinkedIn, or GitHub.";
 
   return (
     <section
@@ -20,8 +20,8 @@ export function Contact() {
           className="mx-auto mb-10 max-w-2xl text-2xl font-bold leading-snug text-[var(--fg)] sm:text-3xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px 0px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           {tagline}
         </motion.p>

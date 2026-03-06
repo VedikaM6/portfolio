@@ -17,16 +17,16 @@ export function AnimatedBackground() {
 
   const isDark = theme === "dark";
 
-  // Aurora: dark = deeper violet/indigo/blue; light = soft lavender/slate (professional, subtle)
+  // Aurora: dark = deeper violet/indigo/blue; light = visible lavender/indigo on light bg
   const aurora1 = isDark
     ? "radial-gradient(ellipse 70% 50% at 20% 40%, rgba(88, 28, 135, 0.35) 0%, rgba(88, 28, 135, 0.08) 40%, transparent 70%)"
-    : "radial-gradient(ellipse 70% 50% at 20% 40%, rgba(129, 140, 248, 0.2) 0%, rgba(129, 140, 248, 0.06) 40%, transparent 70%)";
+    : "radial-gradient(ellipse 70% 50% at 20% 40%, rgba(99, 102, 241, 0.35) 0%, rgba(129, 140, 248, 0.12) 40%, transparent 70%)";
   const aurora2 = isDark
     ? "radial-gradient(ellipse 60% 70% at 80% 60%, rgba(49, 46, 129, 0.3) 0%, rgba(49, 46, 129, 0.06) 45%, transparent 70%)"
-    : "radial-gradient(ellipse 60% 70% at 80% 60%, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.04) 45%, transparent 70%)";
+    : "radial-gradient(ellipse 60% 70% at 80% 60%, rgba(139, 92, 246, 0.3) 0%, rgba(99, 102, 241, 0.1) 45%, transparent 70%)";
   const aurora3 = isDark
     ? "radial-gradient(ellipse 50% 80% at 50% 20%, rgba(67, 56, 202, 0.2) 0%, rgba(67, 56, 202, 0.04) 50%, transparent 70%)"
-    : "radial-gradient(ellipse 50% 80% at 50% 20%, rgba(139, 92, 246, 0.12) 0%, rgba(139, 92, 246, 0.03) 50%, transparent 70%)";
+    : "radial-gradient(ellipse 50% 80% at 50% 20%, rgba(124, 58, 237, 0.25) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%)";
 
   return (
     <div

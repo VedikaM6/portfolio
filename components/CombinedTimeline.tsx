@@ -236,14 +236,14 @@ export function CombinedTimeline() {
 
         {/* Timeline: center line + alternating tiles */}
         <div className="relative">
-          {/* Central vertical line - solid, full height, visible in both themes */}
+          {/* Central vertical line - solid, full height; darker in light mode for contrast on aurora */}
           <div
-            className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 -translate-x-px bg-slate-300 dark:bg-slate-600 md:block"
+            className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 -translate-x-px bg-slate-500 dark:bg-slate-600 md:block"
             aria-hidden
           />
           {/* Mobile: left line */}
           <div
-            className="absolute bottom-0 left-[15px] top-0 w-0.5 bg-slate-300 dark:bg-slate-600 md:hidden"
+            className="absolute bottom-0 left-[15px] top-0 w-0.5 bg-slate-500 dark:bg-slate-600 md:hidden"
             aria-hidden
           />
 

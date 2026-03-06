@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Building2, GraduationCap, BadgeCheck } from "lucide-react";
+import { ChevronDown, Building2, GraduationCap, Award } from "lucide-react";
 import { getTimelineItems, type TimelineItem, type TimelineExperience } from "@/lib/timeline";
 
 const TYPE_CONFIG = {
@@ -34,7 +34,7 @@ const TYPE_CONFIG = {
   },
   certification: {
     label: "Certification",
-    icon: BadgeCheck,
+    icon: Award,
     color: "amber",
     classes: {
       node: "border-amber-500 bg-amber-500 shadow-amber-500/30",
@@ -86,7 +86,7 @@ function TimelineCard({
             aria-expanded={isOpen}
             aria-label={isOpen ? "Collapse details" : "Expand for more details"}
           >
-            <div className={`flex min-w-0 flex-1 items-center gap-3 ${isLeft ? "lg:flex-row-reverse" : ""}`}>
+            <div className="flex min-w-0 flex-1 items-center gap-3">
               <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${config.classes.iconBg}`}>
                 <Icon className="h-5 w-5" />
               </div>
@@ -151,7 +151,7 @@ function TimelineCard({
         </>
       )}
       {item.type === "education" && (
-        <div className={`flex items-center gap-3 p-4 text-left sm:p-5 ${isLeft ? "lg:flex-row-reverse lg:text-right" : ""}`}>
+        <div className="flex items-center gap-3 p-4 text-left sm:p-5">
           <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${config.classes.iconBg}`}>
             <Icon className="h-5 w-5" />
           </div>
@@ -163,7 +163,7 @@ function TimelineCard({
         </div>
       )}
       {item.type === "certification" && (
-        <div className={`flex items-center gap-3 p-4 text-left sm:p-5 ${isLeft ? "lg:flex-row-reverse lg:text-right" : ""}`}>
+        <div className="flex items-center gap-3 p-4 text-left sm:p-5">
           <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${config.classes.iconBg}`}>
             <Icon className="h-5 w-5" />
           </div>

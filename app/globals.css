@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0612;
+  --fg: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #a78bfa;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --timeline-line: rgba(148, 163, 184, 0.3);
+}
+
+.light {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --accent: #7c3aed;
+  --glass: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(0, 0, 0, 0.12);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(0, 0, 0, 0.12);
+  --timeline-line: rgba(100, 116, 139, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media print {
+  nav,
+  [aria-label="Page sections"],
+  .fixed,
+  button,
+  a[href="#download-resume"] + main button,
+  footer {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #111;
+  }
+  #download-resume .rounded-2xl {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

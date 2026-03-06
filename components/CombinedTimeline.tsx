@@ -236,18 +236,18 @@ export function CombinedTimeline() {
 
         {/* Timeline: center line + alternating tiles */}
         <div className="relative">
-          {/* Central vertical line - solid, full height; darker in light mode for contrast on aurora */}
+          {/* Central vertical line - solid, full height; dark purple for theme + visibility on gradient */}
           <div
-            className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 -translate-x-px bg-slate-500 dark:bg-slate-600 md:block"
+            className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 -translate-x-px bg-violet-600 dark:bg-violet-500 md:block"
             aria-hidden
           />
-          {/* Mobile: left line */}
+          {/* Mobile: left line – slightly thicker so it’s visible on small screens */}
           <div
-            className="absolute bottom-0 left-[15px] top-0 w-0.5 bg-slate-500 dark:bg-slate-600 md:hidden"
+            className="absolute bottom-0 left-5 top-0 w-1 bg-violet-600 dark:bg-violet-500 md:hidden"
             aria-hidden
           />
 
-          <div className="space-y-8 md:space-y-10">
+          <div className="space-y-6 md:space-y-10">
             {items.map((item, index) => {
               const isLeft = index % 2 === 0;
               const config = TYPE_CONFIG[item.type];
@@ -255,7 +255,7 @@ export function CombinedTimeline() {
               return (
                 <div
                   key={item.id}
-                  className="relative flex flex-col items-stretch md:flex-row md:items-center md:justify-center"
+                  className="relative flex flex-row items-stretch md:flex-row md:items-center md:justify-center"
                 >
                   {/* Left side card (desktop only when isLeft) */}
                   <div className="hidden min-w-0 flex-1 justify-end md:flex md:flex-[1_1_0] md:pr-3 lg:pr-4">
@@ -270,15 +270,15 @@ export function CombinedTimeline() {
                     )}
                   </div>
 
-                  {/* Center: node */}
-                  <div className="relative z-10 flex shrink-0 items-start justify-center pt-1.5 md:items-center md:py-4 md:px-1">
+                  {/* Node column: fixed width on mobile (w-10) so line at left-5 runs through center */}
+                  <div className="relative z-10 flex w-10 shrink-0 items-center justify-center md:w-auto md:py-4 md:px-1">
                     <div
                       className={`h-4 w-4 rounded-full border-2 shadow-lg ring-4 ring-offset-2 ring-offset-[var(--bg)] transition-transform duration-300 hover:scale-125 md:h-5 md:w-5 ${config.classes.node} ${config.classes.nodeRing}`}
                     />
                   </div>
 
                   {/* Right side card (desktop when !isLeft; mobile always) */}
-                  <div className="flex min-w-0 flex-1 items-start justify-start pl-2 md:flex-[1_1_0] md:justify-start md:pl-3 lg:pl-4">
+                  <div className="flex min-w-0 flex-1 items-start justify-start pl-3 md:flex-[1_1_0] md:justify-start md:pl-3 lg:pl-4">
                     <div className={`w-full ${isLeft ? "block md:hidden" : "block"}`}>
                       <TimelineCard
                         item={item}

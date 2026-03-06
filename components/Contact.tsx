@@ -17,7 +17,7 @@ export function Contact() {
     >
       <div className="mx-auto max-w-6xl text-center">
         <motion.p
-          className="mx-auto mb-10 max-w-xl text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl"
+          className="mx-auto mb-10 max-w-2xl text-2xl font-bold leading-snug text-[var(--fg)] sm:text-3xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}

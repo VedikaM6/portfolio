@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SplashScreen } from "@/components/SplashScreen";
 import { Hero } from "@/components/Hero";
 import { CombinedTimeline } from "@/components/CombinedTimeline";
-import { Achievements } from "@/components/Achievements";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
@@ -32,7 +31,6 @@ export default function Home() {
           >
             <Hero />
             <CombinedTimeline />
-            <Achievements />
             <Projects />
             <Skills />
             <Contact />

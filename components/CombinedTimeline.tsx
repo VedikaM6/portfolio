@@ -197,7 +197,7 @@ export function CombinedTimeline() {
           viewport={{ once: true, amount: 0.12 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
         >
-          Experience, Education & Certifications
+          Timeline
         </motion.h2>
         <motion.p
           className="mb-12 text-slate-600 dark:text-slate-400"
@@ -206,7 +206,7 @@ export function CombinedTimeline() {
           viewport={{ once: true }}
           transition={{ duration: 0.2, delay: 0.05 }}
         >
-          Timeline view — tap cards to expand experience details.
+          Tap cards to expand experience details.
         </motion.p>
 
         {/* Legend: type colors */}
@@ -236,14 +236,14 @@ export function CombinedTimeline() {
 
         {/* Timeline: center line + alternating tiles */}
         <div className="relative">
-          {/* Central vertical line - visible from md up */}
+          {/* Central vertical line - solid, full height, visible in both themes */}
           <div
-            className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-px bg-gradient-to-b from-violet-500/40 via-[var(--timeline-line)] to-transparent md:block"
+            className="absolute bottom-0 left-1/2 top-0 hidden w-0.5 -translate-x-px bg-slate-300 dark:bg-slate-600 md:block"
             aria-hidden
           />
           {/* Mobile: left line */}
           <div
-            className="absolute left-[15px] top-0 h-full w-0.5 bg-gradient-to-b from-violet-500/40 via-[var(--timeline-line)] to-transparent md:hidden"
+            className="absolute bottom-0 left-[15px] top-0 w-0.5 bg-slate-300 dark:bg-slate-600 md:hidden"
             aria-hidden
           />
 

@@ -10,7 +10,6 @@ const RESUME_FILENAME = "Vedika-Maheshwari-Resume.pdf";
 
 const LINKS = [
   { label: "Timeline", href: "#experience" },
-  { label: "Achievements", href: "#achievements" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },

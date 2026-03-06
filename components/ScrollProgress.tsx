@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 
-const SECTIONS = ["hero", "experience", "achievements", "projects", "skills", "contact"];
+const SECTIONS = ["hero", "experience", "projects", "skills", "contact"];
 
 export function ScrollProgress() {
   const [activeIndex, setActiveIndex] = useState(0);

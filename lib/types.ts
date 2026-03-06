@@ -30,6 +30,8 @@ export interface Project {
   dates?: string;
   bullets: string[];
   links?: { label: string; url: string }[];
+  /** Lucide icon name for the project card (e.g. "ShieldAlert", "Network") */
+  icon?: string;
 }
 
 export interface Skills {

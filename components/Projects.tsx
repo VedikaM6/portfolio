@@ -1,8 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderGit2 } from "lucide-react";
+import { FolderGit2, ShieldAlert, Radar, type LucideIcon } from "lucide-react";
 import { resumeData } from "@/lib/data";
+
+const PROJECT_ICONS: Record<string, LucideIcon> = {
+  ShieldAlert,
+  Radar,
+};
+
+function getProjectIcon(iconName?: string): LucideIcon {
+  return (iconName && PROJECT_ICONS[iconName]) || FolderGit2;
+}
 
 export function Projects() {
   return (
@@ -18,7 +27,9 @@ export function Projects() {
           Projects
         </motion.h2>
         <div className="space-y-6">
-          {resumeData.projects.map((proj, i) => (
+          {resumeData.projects.map((proj, i) => {
+            const Icon = getProjectIcon(proj.icon);
+            return (
             <motion.article
               key={proj.title}
               className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-6 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/10 hover:-translate-y-0.5 dark:hover:border-violet-400/30 dark:hover:shadow-violet-500/15"
@@ -29,7 +40,7 @@ export function Projects() {
             >
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
-                  <FolderGit2 className="h-6 w-6" />
+                  <Icon className="h-6 w-6" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="font-semibold text-[var(--fg)]">{proj.title}</h3>
@@ -63,7 +74,8 @@ export function Projects() {
                 </div>
               </div>
             </motion.article>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>

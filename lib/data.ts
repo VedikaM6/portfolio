@@ -86,6 +86,7 @@ export const resumeData: ResumeData = {
   projects: [
     {
       title: "Phishing Awareness Simulation & Security Testing",
+      icon: "ShieldAlert",
       dates: "Jan 2024 – Jun 2024",
       bullets: [
         "Built a full stack phishing simulation platform with campaign scheduling, customizable email templates, and multi user management.",
@@ -99,6 +100,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "ScapyAssignment",
+      icon: "Radar",
       dates: "Network security project",
       bullets: [
         "Network reconnaissance and security analysis using Scapy (Python).",

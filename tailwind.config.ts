@@ -19,6 +19,11 @@ const config: Config = {
         "aurora-drift-1": "auroraDrift1 22s ease-in-out infinite",
         "aurora-drift-2": "auroraDrift2 26s ease-in-out infinite",
         "aurora-drift-3": "auroraDrift3 30s ease-in-out infinite",
+        "bokeh-drift-1": "bokehDrift1 25s ease-in-out infinite",
+        "bokeh-drift-2": "bokehDrift2 30s ease-in-out infinite",
+        "bokeh-drift-3": "bokehDrift3 28s ease-in-out infinite",
+        "bokeh-drift-4": "bokehDrift4 32s ease-in-out infinite",
+        "bokeh-drift-5": "bokehDrift5 27s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
@@ -34,6 +39,27 @@ const config: Config = {
           "0%, 100%": { backgroundPosition: "50% 50%" },
           "33%": { backgroundPosition: "52% 48%" },
           "66%": { backgroundPosition: "48% 52%" },
+        },
+        bokehDrift1: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(8%, -5%)" },
+        },
+        bokehDrift2: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(-6%, 8%)" },
+        },
+        bokehDrift3: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "33%": { transform: "translate(5%, 4%)" },
+          "66%": { transform: "translate(-4%, -6%)" },
+        },
+        bokehDrift4: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(-10%, -4%)" },
+        },
+        bokehDrift5: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(4%, 10%)" },
         },
       },
       backgroundSize: {

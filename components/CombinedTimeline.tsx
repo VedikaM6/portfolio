@@ -69,7 +69,7 @@ function TimelineCard({
 
   const cardContent = (
     <motion.div
-      className={`overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-violet-500/25 hover:shadow-md hover:shadow-violet-500/5 dark:border-white/10 dark:bg-white/[0.06] dark:shadow-lg dark:shadow-black/20 dark:hover:border-violet-500/25 dark:hover:shadow-violet-500/10 ${config.classes.card} ${isLeft ? "lg:mr-4" : "lg:ml-4"}`}
+      className={`w-full overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-violet-500/25 hover:shadow-md hover:shadow-violet-500/5 dark:border-white/10 dark:bg-white/[0.06] dark:shadow-lg dark:shadow-black/20 dark:hover:border-violet-500/25 dark:hover:shadow-violet-500/10 ${config.classes.card} ${isLeft ? "lg:mr-4" : "lg:ml-4"}`}
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px 0px" }}
@@ -177,7 +177,7 @@ function TimelineCard({
   );
 
   return (
-    <div className={`flex w-full max-w-full lg:max-w-[480px] xl:max-w-[540px] ${isLeft ? "md:justify-end" : "md:justify-start"}`}>
+    <div className={`flex w-full min-w-0 lg:w-[480px] lg:min-w-[480px] xl:w-[540px] xl:min-w-[540px] ${isLeft ? "md:justify-end" : "md:justify-start"}`}>
       {cardContent}
     </div>
   );

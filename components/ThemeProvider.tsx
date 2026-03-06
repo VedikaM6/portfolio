@@ -15,13 +15,12 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
-    const preferDark = typeof window !== "undefined" && !window.matchMedia("(prefers-color-scheme: light)").matches;
-    setThemeState(stored ?? (preferDark ? "dark" : "light"));
+    setThemeState(stored ?? "light");
     setMounted(true);
   }, []);
 

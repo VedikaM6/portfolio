@@ -243,7 +243,7 @@ export function CombinedTimeline() {
           />
           {/* Mobile: left line – slightly thicker so it’s visible on small screens */}
           <div
-            className="absolute bottom-0 left-5 top-0 w-1 bg-violet-600 dark:bg-violet-500 md:hidden"
+            className="absolute bottom-0 left-2.5 top-0 w-1 bg-violet-600 dark:bg-violet-500 md:hidden"
             aria-hidden
           />
 
@@ -270,15 +270,15 @@ export function CombinedTimeline() {
                     )}
                   </div>
 
-                  {/* Node column: fixed width on mobile (w-10) so line at left-5 runs through center */}
-                  <div className="relative z-10 flex w-10 shrink-0 items-center justify-center md:w-auto md:py-4 md:px-1">
+                  {/* Node column: narrow on mobile (w-6) so line at left-2.5 (center 12px) runs through node center; more room for tiles */}
+                  <div className="relative z-10 flex w-6 shrink-0 items-center justify-center md:w-auto md:py-4 md:px-1">
                     <div
                       className={`h-4 w-4 rounded-full border-2 shadow-lg ring-4 ring-offset-2 ring-offset-[var(--bg)] transition-transform duration-300 hover:scale-125 md:h-5 md:w-5 ${config.classes.node} ${config.classes.nodeRing}`}
                     />
                   </div>
 
                   {/* Right side card (desktop when !isLeft; mobile always) */}
-                  <div className="flex min-w-0 flex-1 items-start justify-start pl-3 md:flex-[1_1_0] md:justify-start md:pl-3 lg:pl-4">
+                  <div className="flex min-w-0 flex-1 items-start justify-start pl-2 md:flex-[1_1_0] md:justify-start md:pl-3 lg:pl-4">
                     <div className={`w-full ${isLeft ? "block md:hidden" : "block"}`}>
                       <TimelineCard
                         item={item}

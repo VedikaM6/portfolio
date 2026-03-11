@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { resumeData } from "@/lib/data";
 
 export function Footer() {
@@ -26,7 +26,11 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-slate-500 transition hover:text-[var(--fg)] dark:text-slate-400 dark:hover:text-white"
             >
-              <Linkedin className="h-4 w-4" />
+              {l.label === "GitHub" ? (
+                <Github className="h-4 w-4" />
+              ) : (
+                <Linkedin className="h-4 w-4" />
+              )}
               {l.label}
             </a>
           ))}

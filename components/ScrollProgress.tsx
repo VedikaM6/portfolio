@@ -59,7 +59,7 @@ export function ScrollProgress() {
             }`}
           />
           <span className="max-w-0 overflow-hidden text-xs font-medium text-slate-600 opacity-0 transition-[max-width,opacity] duration-200 ease-out group-hover:max-w-[120px] group-hover:opacity-100 dark:text-slate-400 dark:group-hover:text-slate-200">
-            {id.replace(/-/g, " ")}
+            {id.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
           </span>
         </a>
       ))}

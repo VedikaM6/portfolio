@@ -183,9 +183,14 @@ function TimelineCard({
   );
 }
 
+function getFirstExperienceId(): string | null {
+  const items = getTimelineItems();
+  return items.find((i) => i.type === "experience")?.id ?? null;
+}
+
 export function CombinedTimeline() {
   const items = useMemo(() => getTimelineItems(), []);
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string | null>(getFirstExperienceId);
 
   return (
     <section id="experience" className="relative px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8 lg:py-28">

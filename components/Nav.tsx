@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
 const RESUME_PDF = "/Vedika-Maheshwari-Resume.pdf";
 const RESUME_FILENAME = "Vedika-Maheshwari-Resume.pdf";
+
+const SECTIONS = ["hero", "experience", "projects", "skills", "contact"];
 
 const LINKS = [
   { label: "Timeline", href: "#experience" },
@@ -18,7 +20,44 @@ const LINKS = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  const lastIdxRef = useRef(0);
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        let idx = 0;
+        const third = window.innerHeight * 0.35;
+        for (let i = SECTIONS.length - 1; i >= 0; i--) {
+          const el = document.getElementById(SECTIONS[i]);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= third && rect.bottom >= third) {
+              idx = i;
+              break;
+            }
+          }
+        }
+        if (idx !== lastIdxRef.current) {
+          lastIdxRef.current = idx;
+          setActiveSectionIndex(idx);
+        }
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  // Map section index (0=hero, 1=experience, ...) to nav link index (0=Timeline, 1=Projects, ...). Resume is never highlighted.
+  const activeNavIndex = activeSectionIndex <= 0 ? -1 : Math.min(activeSectionIndex - 1, 3);
 
   return (
     <>
@@ -37,16 +76,24 @@ export function Nav() {
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
             <div className="hidden gap-6 md:flex">
-              {LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  {...(link.download ? { download: link.download } : {})}
-                  className="text-sm text-slate-400 transition hover:text-[var(--fg)]"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {LINKS.map((link, i) => {
+                const isActive = i === activeNavIndex;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    {...(link.download ? { download: link.download } : {})}
+                    className={`text-sm transition hover:text-[var(--fg)] ${
+                      isActive
+                        ? "font-medium text-violet-500 dark:text-violet-400"
+                        : "text-slate-400"
+                    }`}
+                    aria-current={isActive ? "true" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
           <button
@@ -76,17 +123,25 @@ export function Nav() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ staggerChildren: 0.05 }}
             >
-              {LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  {...(link.download ? { download: link.download } : {})}
-                  className="rounded-lg py-3 px-4 text-lg text-slate-500 hover:bg-white/10 hover:text-[var(--fg)] dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {LINKS.map((link, i) => {
+                const isActive = i === activeNavIndex;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    {...(link.download ? { download: link.download } : {})}
+                    className={`rounded-lg py-3 px-4 text-lg transition hover:bg-white/10 dark:hover:bg-white/5 ${
+                      isActive
+                        ? "font-medium text-violet-500 dark:text-violet-400"
+                        : "text-slate-500 hover:text-[var(--fg)] dark:text-slate-300 dark:hover:text-white"
+                    }`}
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive ? "true" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </motion.div>
           </motion.div>
         )}

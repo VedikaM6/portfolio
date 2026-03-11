@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Nav } from "@/components/Nav";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Vedika Maheshwari | AI Engineer & Cybersecurity Professional",
@@ -21,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light" suppressHydrationWarning>
-      <body className="min-h-screen antialiased bg-[var(--bg)] text-[var(--fg)]">
+      <body className={`${plusJakarta.variable} font-sans min-h-screen antialiased bg-[var(--bg)] text-[var(--fg)]`}>
         <ThemeProvider>
           <AnimatedBackground />
           <ScrollProgress />

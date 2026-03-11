@@ -5,7 +5,7 @@ import { resumeData } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--card-border)] bg-[var(--glass)] px-6 py-10">
+    <footer className="relative border-t border-[var(--card-border)] px-6 py-10 bg-gradient-to-t from-violet-500/10 via-violet-500/5 to-transparent dark:from-violet-950/40 dark:via-violet-950/20 dark:to-transparent">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 sm:flex-row">
         <p className="text-sm text-slate-500">
           © {new Date().getFullYear()} {resumeData.basics.name}

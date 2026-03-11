@@ -15,7 +15,7 @@ export function Skills() {
   const rest = Object.keys(resumeData.skills).filter((k) => !groupOrder.includes(k));
 
   return (
-    <section id="skills" className="relative px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8 lg:py-28">
+    <section id="skills" className="relative px-4 py-14 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.h2
           className="mb-12 text-3xl font-bold text-[var(--fg)] sm:text-4xl"

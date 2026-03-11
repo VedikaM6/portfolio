@@ -13,7 +13,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative border-t border-[var(--card-border)] px-4 pt-20 pb-24 sm:px-6 sm:pt-24 sm:pb-28 md:pt-28 md:pb-32 lg:px-8 lg:pt-32 lg:pb-36"
+      className="relative border-t border-[var(--card-border)] px-4 pt-24 pb-28 sm:px-6 sm:pt-28 sm:pb-32 md:pt-32 md:pb-36 lg:px-8 lg:pt-36 lg:pb-40"
     >
       <div className="mx-auto max-w-6xl text-center">
         <motion.p

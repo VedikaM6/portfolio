@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 pb-16"
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 pb-24"
     >
       <motion.div
         className="max-w-4xl text-center"
@@ -60,12 +60,13 @@ export function Hero() {
       </motion.div>
       <motion.a
         href="#experience"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 transition hover:text-[var(--fg)]"
+        className="absolute bottom-8 left-1/2 flex flex-col items-center gap-1 -translate-x-1/2 text-slate-500 transition hover:text-[var(--fg)]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
         aria-label="Scroll to experience"
       >
+        <span className="text-xs font-medium tracking-wide">Scroll to explore</span>
         <ChevronDown className="h-8 w-8 animate-bounce" />
       </motion.a>
     </section>

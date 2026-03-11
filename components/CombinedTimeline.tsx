@@ -206,7 +206,7 @@ export function CombinedTimeline() {
           viewport={{ once: true }}
           transition={{ duration: 0.2, delay: 0.05 }}
         >
-          Tap cards to expand experience details.
+          Click or tap cards to expand experience details.
         </motion.p>
 
         {/* Legend: type colors */}

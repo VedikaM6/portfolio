@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderGit2, ShieldAlert, Radar, type LucideIcon } from "lucide-react";
+import { FolderGit2, ShieldAlert, Radar, Github, ExternalLink, type LucideIcon } from "lucide-react";
 import { resumeData } from "@/lib/data";
 
 const PROJECT_ICONS: Record<string, LucideIcon> = {
@@ -57,18 +57,23 @@ export function Projects() {
                     ))}
                   </ul>
                   {proj.links && proj.links.length > 0 && (
-                    <div className="mt-4 flex gap-3">
-                      {proj.links.map((l) => (
-                        <a
-                          key={l.url}
-                          href={l.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium text-violet-400 hover:text-violet-300"
-                        >
-                          {l.label}
-                        </a>
-                      ))}
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {proj.links.map((l) => {
+                        const isGitHub = /github/i.test(l.label);
+                        const LinkIcon = isGitHub ? Github : ExternalLink;
+                        return (
+                          <a
+                            key={l.url}
+                            href={l.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 dark:text-violet-400 dark:hover:text-violet-300"
+                          >
+                            <LinkIcon className="h-4 w-4 shrink-0" />
+                            {l.label}
+                          </a>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

@@ -50,7 +50,8 @@ export function Hero() {
           </a>
           <a
             href="/Vedika-Maheshwari-Resume.pdf"
-            download="Vedika-Maheshwari-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-6 py-3 text-sm font-medium text-[var(--fg)] shadow-sm backdrop-blur-sm transition hover:bg-[var(--glass)] focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-[var(--bg)]"
           >
             Download Resume

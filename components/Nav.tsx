@@ -6,7 +6,6 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
 const RESUME_PDF = "/Vedika-Maheshwari-Resume.pdf";
-const RESUME_FILENAME = "Vedika-Maheshwari-Resume.pdf";
 
 const SECTIONS = ["hero", "experience", "projects", "skills", "contact"];
 
@@ -15,7 +14,7 @@ const LINKS = [
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
-  { label: "Resume", href: RESUME_PDF, download: RESUME_FILENAME },
+  { label: "Resume", href: RESUME_PDF, isResume: true },
 ];
 
 export function Nav() {
@@ -82,7 +81,7 @@ export function Nav() {
                   <a
                     key={link.href}
                     href={link.href}
-                    {...(link.download ? { download: link.download } : {})}
+                    {...(link.isResume ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={`text-sm transition hover:text-[var(--fg)] ${
                       isActive
                         ? "font-medium text-violet-500 dark:text-violet-400"
@@ -129,7 +128,7 @@ export function Nav() {
                   <a
                     key={link.href}
                     href={link.href}
-                    {...(link.download ? { download: link.download } : {})}
+                    {...(link.isResume ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={`rounded-lg py-3 px-4 text-lg transition hover:bg-white/10 dark:hover:bg-white/5 ${
                       isActive
                         ? "font-medium text-violet-500 dark:text-violet-400"

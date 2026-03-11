@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FileDown } from "lucide-react";
 
 const RESUME_PDF = "/Vedika-Maheshwari-Resume.pdf";
-const RESUME_FILENAME = "Vedika-Maheshwari-Resume.pdf";
 
 export function DownloadResume() {
   return (
@@ -31,7 +30,8 @@ export function DownloadResume() {
           </p>
           <a
             href={RESUME_PDF}
-            download={RESUME_FILENAME}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-[var(--bg)]"
           >
             <FileDown className="h-4 w-4" />

@@ -6,37 +6,53 @@ const SECTIONS = ["hero", "experience", "projects", "skills", "contact"];
 
 export function ScrollProgress() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const rafRef = useRef<number | null>(null);
-  const lastIdxRef = useRef(0);
+  const visibleRef = useRef<Set<number>>(new Set());
 
   useEffect(() => {
-    const onScroll = () => {
-      if (rafRef.current != null) return;
-      rafRef.current = requestAnimationFrame(() => {
-        rafRef.current = null;
-        let idx = 0;
-        const third = window.innerHeight * 0.35;
-        for (let i = SECTIONS.length - 1; i >= 0; i--) {
-          const el = document.getElementById(SECTIONS[i]);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= third && rect.bottom >= third) {
-              idx = i;
-              break;
+    let observer: IntersectionObserver | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    const startObserving = () => {
+      const elements = SECTIONS.map((id) => document.getElementById(id)).filter(
+        (el): el is HTMLElement => el != null
+      );
+      if (elements.length === 0) {
+        timeoutId = setTimeout(startObserving, 100);
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const id = entry.target.id;
+            const index = SECTIONS.indexOf(id);
+            if (index === -1) return;
+            if (entry.isIntersecting) {
+              visibleRef.current.add(index);
+            } else {
+              visibleRef.current.delete(index);
             }
-          }
+          });
+          const visible = Array.from(visibleRef.current).sort((a, b) => a - b);
+          const active = visible[0] ?? 0;
+          setActiveIndex(active);
+        },
+        {
+          root: null,
+          rootMargin: "-40% 0px -60% 0px",
+          threshold: 0,
         }
-        if (idx !== lastIdxRef.current) {
-          lastIdxRef.current = idx;
-          setActiveIndex(idx);
-        }
-      });
+      );
+
+      elements.forEach((el) => observer!.observe(el));
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+
+    const frameId = requestAnimationFrame(startObserving);
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      cancelAnimationFrame(frameId);
+      if (timeoutId != null) clearTimeout(timeoutId);
+      observer?.disconnect();
     };
   }, []);
 
